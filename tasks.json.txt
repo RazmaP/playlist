@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build YouTube Playlist Reader",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "main.cpp",
+        "-I${workspaceFolder}",
+        "-I${workspaceFolder}/vcpkg/installed/x64-mingw-dynamic/include",
+        "-L${workspaceFolder}/vcpkg/installed/x64-mingw-dynamic/lib",
+        "-lcurl",
+        "-o",
+        "yt_reader.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

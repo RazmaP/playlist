@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Active File as EXE",
+        "type": "shell",
+        "command": "g++",
+        "args": [
+          "-std=c++17",
+          "${fileBasename}",
+          "-I${workspaceFolder}",
+          "-I${workspaceFolder}/nlohmann",
+          "-I${workspaceFolder}/vcpkg/installed/x64-mingw-dynamic/include",
+          "-L${workspaceFolder}/vcpkg/installed/x64-mingw-dynamic/lib",
+          "-lcurl",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.exe"
+        ],
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  
