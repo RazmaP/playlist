@@ -2,7 +2,7 @@
 #include <string>
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
-
+#include <fstream>
 using namespace std;
 using json = nlohmann::json;
 
@@ -32,7 +32,7 @@ string fetchPage(const string& url) {
 void fetchAllVideos(const string& apiKey, const string& playlistId) {
     string nextPageToken;
     int page = 1;
-
+    ofstream out("playlist.txt", ios::trunc);
     do {
         string url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=" +
                      playlistId + "&key=" + apiKey;
@@ -45,9 +45,11 @@ void fetchAllVideos(const string& apiKey, const string& playlistId) {
 
         string response = fetchPage(url);
         json data = json::parse(response);
-
+        
         for (const auto& item : data["items"]) {
+            string title = item["snippet"]["title"];
             cout << "🎵 " << item["snippet"]["title"] << endl;
+            out<<title<<endl;
         }
 
         nextPageToken = data.value("nextPageToken", "");
