@@ -2,20 +2,6 @@
 
 This project is a two-part tool that makes it simple to convert a YouTube playlist into a Spotify playlist. The C++ component fetches video titles from a YouTube playlist using the YouTube Data API, and the Python component uses Spotify's Web API to create and populate a corresponding playlist on your Spotify account.
 
----
-
-## Table of Contents
-- [Overview](#overview)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [File Structure](#file-structure)
-- [License](#license)
-- [Contributing](#contributing)
-- [Contact](#contact)
-
----
-
 ## Overview
 
 Ever wanted to seamlessly transfer your favorite YouTube playlist to Spotify? This project does just that by splitting the task into two parts:
